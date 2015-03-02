@@ -1,0 +1,22 @@
+{
+  "name": "UberDoku",
+  "version": "1.0.0",
+  "description": "This is an implementation of a web-based Soduku game.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://danielbuechele@github.com/danielbuechele/UberDoku.git"
+  },
+  "author": "Daniel Büchele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielbuechele/UberDoku/issues"
+  },
+  "homepage": "https://github.com/danielbuechele/UberDoku",
+  "dependencies": {
+    "jsx-loader": "^0.12.2",
+    "webpack": "^1.6.0"
+  }
+}
