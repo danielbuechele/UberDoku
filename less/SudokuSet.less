@@ -1,0 +1,61 @@
+.sudokuSetRow {
+	
+	.sudokuSet {
+		float: left;
+		width: 33%;
+		border-right: 1px solid black;
+		border-bottom: 3px solid black;
+	
+		.sudokuRow {
+			overflow: hidden;
+			
+			.sudokuField {
+				background-color: #F1EFED;
+				color: black;
+				font-size: 5vw;
+				width: 33%;
+				border-left: 1px solid black;
+				border-bottom: 1px solid black;
+				float: left;
+				position: relative;
+				overflow: hidden;
+				
+				@media (min-width: 1200px) {
+					font-size: 60px;
+				}
+					
+				&:before{
+					content: "";
+					display: block;
+					padding-top: 100%;
+				}
+				
+				.fieldContent {
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					
+					div {
+					   display: table;
+					   width: 100%;
+					   height: 100%;
+					}
+					
+					span {
+						display: table-cell;
+						text-align: center;
+						vertical-align: middle;
+					}
+				}
+
+				
+				&:hover {
+					background-color: #e5e3e1;
+				}
+			}
+		}
+	}
+	
+}
