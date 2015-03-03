@@ -1,24 +1,28 @@
 var React = require('react');
+require('react/addons');
 
 module.exports = React.createClass({
-
-	getInitialState: function () {
-		return {
-			number: this.props.number>0 ? this.props.number : '',
-		};
-	},
 	
 	onClick: function () {
-			
-		
+		if (!this.props.numbers[this.props.i][this.props.j].predefined) {
+			this.props.onChange(this.props.i,this.props.j,'-');
+		}
 	},
 
 	render: function () {
+		var cx = React.addons.classSet;
+		var classes = cx({
+			'sudokuField': true,
+			'predefined': this.props.numbers[this.props.i][this.props.j].predefined,
+		});
+		
+		var value = this.props.numbers[this.props.i][this.props.j].number>0 ? this.props.numbers[this.props.i][this.props.j].number : '';
+		
 		return (
-			<div className="sudokuField" onClick={this.onClick}>
+			<div className={classes} onClick={this.onClick}>
 				<div className="fieldContent">
 					<div>
-						<span>{this.state.number}</span>
+						<span>{value}</span>
 					</div>
 				</div>
 			</div>

@@ -14,19 +14,19 @@ module.exports = React.createClass({
 		return (
 			<div className="sudokuSet">
 				<div className="sudokuRow">
-					<SudokuField number={this.props.numbers[0]} />
-					<SudokuField number={this.props.numbers[1]} />
-					<SudokuField number={this.props.numbers[2]} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={0} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={1} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={2} />
 				</div>
 				<div className="sudokuRow">
-					<SudokuField number={this.props.numbers[3]} />
-					<SudokuField number={this.props.numbers[4]} />
-					<SudokuField number={this.props.numbers[5]} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={3} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={4} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={5} />
 				</div>
 				<div className="sudokuRow">
-					<SudokuField number={this.props.numbers[6]} />
-					<SudokuField number={this.props.numbers[7]} />
-					<SudokuField number={this.props.numbers[8]} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={6} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={7} />
+					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={8} />
 				</div>
 			</div>
 		);

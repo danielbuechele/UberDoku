@@ -7,26 +7,106 @@ module.exports = React.createClass({
 		return {
 			numbers: [
 				[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
+					
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				],[
-					-1,2,3,4,5,6,7,8,9
+					{predefined: true, number: -1},
+					{predefined: false, number: 2},
+					{predefined: true, number: 3},
+					{predefined: false, number: 4},
+					{predefined: false, number: 5},
+					{predefined: false, number: 6},
+					{predefined: true, number: 7},
+					{predefined: false, number: 8},
+					{predefined: true, number: 9}
 				]
 			]
 		};
+	},
+	
+	changeNumber: function (i,j,number) {
+		console.log(i,j,number);
+		var changedNumbers = this.state.numbers;
+		changedNumbers[i][j].number = number;
+		this.setState({numbers: changedNumbers});
 	},
 
 	render: function () {
@@ -34,19 +114,19 @@ module.exports = React.createClass({
 			<div>
 				<h1>UberDoku</h1>
 				<div className="sudokuSetRow">
-					<SudokuSet numbers={this.state.numbers[0]} />
-					<SudokuSet numbers={this.state.numbers[1]} />
-					<SudokuSet numbers={this.state.numbers[2]} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={0} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={1} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={2} />
 				</div>
 				<div className="sudokuSetRow">
-					<SudokuSet numbers={this.state.numbers[3]} />
-					<SudokuSet numbers={this.state.numbers[4]} />
-					<SudokuSet numbers={this.state.numbers[5]} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={3} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={4} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={5} />
 				</div>
 				<div className="sudokuSetRow">
-					<SudokuSet numbers={this.state.numbers[6]} />
-					<SudokuSet numbers={this.state.numbers[7]} />
-					<SudokuSet numbers={this.state.numbers[8]} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={6} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={7} />
+					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={8} />
 				</div>
 			</div>
 		);
