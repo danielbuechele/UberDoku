@@ -11,23 +11,20 @@ module.exports = React.createClass({
 	},
 
 	render: function () {
+		var _self = this;
+		var j = 0;
+		
 		return (
 			<div className="sudokuSet">
-				<div className="sudokuRow">
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={0} />
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={1} />
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={2} />
-				</div>
-				<div className="sudokuRow">
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={3} />
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={4} />
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={5} />
-				</div>
-				<div className="sudokuRow">
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={6} />
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={7} />
-					<SudokuField onChange={this.props.onChange} numbers={this.props.numbers} i={this.props.i} j={8} />
-				</div>
+				{[1,2,3].map(function(result) {
+					return (
+						<div className="sudokuRow">
+							{[1,2,3].map(function(result) {
+								return <SudokuField onChange={_self.props.onChange} numbers={_self.props.numbers} i={_self.props.i} j={j++} />
+							})}
+						</div>
+					);
+				})}
 			</div>
 		);
 	}

@@ -110,24 +110,22 @@ module.exports = React.createClass({
 	},
 
 	render: function () {
+		
+		var _self = this;
+		var i = 0;
+		
 		return (
 			<div>
 				<h1>UberDoku</h1>
-				<div className="sudokuSetRow">
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={0} />
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={1} />
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={2} />
-				</div>
-				<div className="sudokuSetRow">
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={3} />
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={4} />
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={5} />
-				</div>
-				<div className="sudokuSetRow">
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={6} />
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={7} />
-					<SudokuSet onChange={this.changeNumber} numbers={this.state.numbers} i={8} />
-				</div>
+				{[1,2,3].map(function(result) {
+					return (
+						<div className="sudokuSetRow">
+							{[1,2,3].map(function(result) {
+								return <SudokuSet onChange={_self.changeNumber} numbers={_self.state.numbers} i={i++} />;
+							})}
+						</div>
+					);
+				})}
 			</div>
 		);
 	}
