@@ -1,5 +1,6 @@
 var React = require('react');
 var SudokuSet = require('./SudokuSet.jsx');
+var Buttons = require('./Buttons.jsx');
 
 module.exports = React.createClass({
 
@@ -102,6 +103,16 @@ module.exports = React.createClass({
 		};
 	},
 	
+	resetState: function () {
+		var numbers = this.state.numbers;
+		numbers.forEach(function (row) {
+			row.forEach(function(n) {
+				if (!n.predefined) {n.number = -1;}
+			});
+		});
+		this.setState({numbers: numbers});
+	},
+	
 	changeNumber: function (i,j,number) {
 		console.log(i,j,number);
 		var changedNumbers = this.state.numbers;
@@ -117,10 +128,11 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<h1>UberDoku</h1>
-				{[1,2,3].map(function(result) {
+				<Buttons />
+				{[1,2,3].map(function() {
 					return (
 						<div className="sudokuSetRow">
-							{[1,2,3].map(function(result) {
+							{[1,2,3].map(function() {
 								return <SudokuSet onChange={_self.changeNumber} numbers={_self.state.numbers} i={i++} />;
 							})}
 						</div>

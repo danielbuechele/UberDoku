@@ -16,10 +16,10 @@ module.exports = React.createClass({
 		
 		return (
 			<div className="sudokuSet">
-				{[1,2,3].map(function(result) {
+				{[1,2,3].map(function() {
 					return (
 						<div className="sudokuRow">
-							{[1,2,3].map(function(result) {
+							{[1,2,3].map(function() {
 								return <SudokuField onChange={_self.props.onChange} numbers={_self.props.numbers} i={_self.props.i} j={j++} />
 							})}
 						</div>
