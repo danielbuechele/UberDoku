@@ -5,31 +5,12 @@ require('../less/SudokuField.less')
 
 module.exports = React.createClass({
 	
-	getPossibleNumbersFor: function (i, j) {
-		var possibleNumbers = [1,2,3,4,5,6,7,8,9];
-		
-		//remove same set
-		this.props.numbers[this.props.i].forEach(function (n) {
-			console.log(n.number);
-		});
-		
-		//remove same row
-		
-		
-		//remove same column
-		
-		return possibleNumbers;
-	},
-	
 	getInitialState: function() {
 		return {'insertNumber':false};
 	},
 	
 	onClick: function () {
-		if (!this.props.numbers[this.props.i][this.props.j].predefined) {
-			this.setState({'insertNumber': true});
-			this.props.onChange(this.props.i,this.props.j,'-');
-		}
+		this.setState({insertNumber: (!this.props.board[this.props.i].predefined && !this.state.insertNumber)});
 	},
 	
 	onKeyUp: function (e) {
@@ -41,18 +22,17 @@ module.exports = React.createClass({
 		var cx = React.addons.classSet;
 		var classes = cx({
 			'sudokuField': true,
-			'predefined': this.props.numbers[this.props.i][this.props.j].predefined,
+			'predefined': this.props.board[this.props.i].predefined,
 			'insertNumber': this.state.insertNumber
 		});
 		
-		var value = this.props.numbers[this.props.i][this.props.j].number>0 ? this.props.numbers[this.props.i][this.props.j].number : '';
 		
 		return (
 			<div className={classes} onClick={this.onClick} onKeyUp={this.onKeyUp}>
 				<div className="fieldContent">
-					<NumberPicker />
+					<NumberPicker onChange={this.props.onChange} board={this.props.board} i={this.props.i} />
 					<div className="innerContent">
-						<span className="innerContentCentered">{value}</span>
+						<span className="innerContentCentered">{this.props.board[this.props.i]}</span>
 					</div>
 				</div>
 			</div>

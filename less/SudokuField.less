@@ -1,15 +1,20 @@
 .sudokuField {
 	
 	font-size: 5vw;
-	width: 32%;
-	margin-right: 1.3333333333%;
-	margin-bottom: 1.3333333333%;
+	width: 10%;
 	float: left;
-	position: relative;
-	
+	z-index: 1;
 	transform: scale(1,1);
-	-moz-transform: scale(1,1);
-	-webkit-transform: scale(1,1);
+	margin-right: 0.5%;
+	margin-bottom: 0.5%;
+	
+	&:nth-child(3n+2) {
+		margin-right: 1.5%;
+	}
+	
+	&:nth-child(27n+2) {
+		margin-bottom: 1.5%;
+	}
 	
 	@media (min-width: 1200px) {
 		font-size: 60px;
@@ -57,18 +62,13 @@
 	
 	&.insertNumber {
 		transform: scale(2,2);
-		-moz-transform: scale(2,2);
-		-webkit-transform: scale(2,2);
 		transition: transform .2s;
-		-moz-transition: -moz-transform .2s;
-		-webkit-transition: -webkit-transform .2s;
-		
-		
-		background-color: #F7474E;
-		overflow: hidden;
 		
 		z-index: 2;
 		position: relative;
+		
+		background-color: #F7474E;
+		overflow: hidden;
 		border: 1px solid white;
 		border-radius: 5px;
 		
