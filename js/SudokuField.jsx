@@ -10,6 +10,7 @@ module.exports = React.createClass({
 	},
 	
 	onClick: function () {
+		this.props.onClick();
 		this.setState({insertNumber: (!this.props.board[this.props.i].predefined && !this.state.insertNumber)});
 	},
 	

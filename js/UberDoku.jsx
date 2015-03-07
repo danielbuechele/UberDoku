@@ -49,6 +49,12 @@ module.exports = React.createClass({
 		changedNumbers[i].number = number;
 		this.setState({board: changedNumbers});
 	},
+	
+	onClick: function () {
+		for(var e in this.refs) {
+			this.refs[e].setState(this.refs[e].getInitialState());
+		}
+	},
 
 	render: function () {
 		var _self = this;
@@ -58,7 +64,14 @@ module.exports = React.createClass({
 				<Buttons newPuzzle={this.newPuzzle} solvePuzzle={this.solvePuzzle} resetPuzzle={this.resetPuzzle} board={this.state.board} />
 				{
 					this.state.board.map(function (e,i) {
-						return <SudokuField onChange={_self.changeNumber} board={_self.state.board} i={i} />;
+						return (
+						<SudokuField
+							onClick={_self.onClick}
+							onChange={_self.changeNumber}
+							board={_self.state.board}
+							i={i}
+							ref={i} />
+						);
 					})
 				}
 			</div>
