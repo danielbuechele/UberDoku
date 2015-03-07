@@ -6,7 +6,7 @@ require('../less/SudokuField.less')
 module.exports = React.createClass({
 	
 	getInitialState: function() {
-		return {'insertNumber':false};
+		return {insertNumber:false};
 	},
 	
 	onClick: function () {
@@ -14,7 +14,7 @@ module.exports = React.createClass({
 	},
 	
 	onKeyUp: function (e) {
-		this.setState({'insertNumber': false});
+		this.setState({insertNumber: false});
 		console.log(e);
 	},
 
@@ -26,15 +26,18 @@ module.exports = React.createClass({
 			'insertNumber': this.state.insertNumber
 		});
 		
+		var value;
+		if (this.props.board[this.props.i].number != null) {
+			value = this.props.board[this.props.i].number+1;
+		}
 		
 		return (
 			<div className={classes} onClick={this.onClick} onKeyUp={this.onKeyUp}>
 				<div className="fieldContent">
 					<NumberPicker onChange={this.props.onChange} board={this.props.board} i={this.props.i} />
-					<div className="innerContent">
-						<span className="innerContentCentered">{this.props.board[this.props.i]}</span>
-					</div>
+					{value}
 				</div>
+				
 			</div>
 		);
 	}

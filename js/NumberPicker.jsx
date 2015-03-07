@@ -3,7 +3,7 @@ require('../less/NumberPicker.less')
 
 module.exports = React.createClass({
 	onClick: function (e) {
-		this.props.onChange(this.props.i, this.props.j, e.target.innerHTML);
+		this.props.onChange(this.props.i, parseInt(e.target.innerHTML)-1);
 	},
 	
 	getPossibleNumbersFor: function () {

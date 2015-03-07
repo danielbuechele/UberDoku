@@ -5,21 +5,20 @@ module.exports = React.createClass({
 	reset: function () {
 		this.props.reset();
 	},
-	
-	getInitialState: function () {
-		return {
-			completed: 0
-		};
-	},
 
 	render: function () {
+		var completed = 0;
+		this.props.board.forEach(function (e) {
+			if (e.number != null) completed++;
+		});
+
 		return (
 			<div className="buttons">
-				<a className="button green" onClick={this.reset}>New</a>
-				<a className="button yellow" onClick={this.reset}>Solve</a>
-				<a className="button red" onClick={this.reset}>Reset</a>
+				<a className="button green" onClick={this.props.newPuzzle}>New</a>
+				<a className="button yellow" onClick={this.props.solvePuzzle}>Solve</a>
+				<a className="button red" onClick={this.props.resetPuzzle}>Reset</a>
 				<div className="filled">
-					{this.state.completed}/81
+					{completed}/{this.props.board.length}
 				</div>
 			</div>
 		);
