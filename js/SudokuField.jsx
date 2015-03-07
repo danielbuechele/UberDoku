@@ -36,9 +36,10 @@ module.exports = React.createClass({
 			<div className={classes} onClick={this.onClick} onKeyUp={this.onKeyUp}>
 				<div className="fieldContent">
 					<NumberPicker onChange={this.props.onChange} board={this.props.board} i={this.props.i} />
-					{value}
+					<div className="fieldTable">
+						<span className="fieldCell">{value}</span>
+					</div>
 				</div>
-				
 			</div>
 		);
 	}

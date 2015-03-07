@@ -4,14 +4,25 @@ var Buttons = require('./Buttons.jsx');
 var sudoku = require('sudoku');
 
 module.exports = React.createClass({
-
+	
 	getInitialState: function () {
-		var puzzle = sudoku.makepuzzle();
-		return {
-			board: puzzle.map(function (e) {
+		var puzzle = JSON.parse(localStorage.getItem("board"));
+		if (!puzzle) {
+			console.log('new puzzle');
+			puzzle = sudoku.makepuzzle().map(function (e) {
 				return {number: e==null? null : e, predefined: (e!=null)};
-			})
+			});
+			localStorage.setItem("board", JSON.stringify(puzzle));
+		}
+		
+		return {
+			board: puzzle
 		};
+	},
+		
+	shouldComponentUpdate: function () {
+		localStorage.setItem("board", JSON.stringify(this.state.board));
+		return true;
 	},
 	
 	resetPuzzle: function () {
@@ -40,7 +51,8 @@ module.exports = React.createClass({
 	},
 	
 	newPuzzle: function () {
-		this.setState(this.getInitialState());
+		localStorage.removeItem("board");
+		location.reload();
 	},
 
 	
@@ -64,14 +76,7 @@ module.exports = React.createClass({
 				<Buttons newPuzzle={this.newPuzzle} solvePuzzle={this.solvePuzzle} resetPuzzle={this.resetPuzzle} board={this.state.board} />
 				{
 					this.state.board.map(function (e,i) {
-						return (
-						<SudokuField
-							onClick={_self.onClick}
-							onChange={_self.changeNumber}
-							board={_self.state.board}
-							i={i}
-							ref={i} />
-						);
+						return <SudokuField onClick={_self.onClick} onChange={_self.changeNumber} board={_self.state.board} key={i} i={i} ref={i} />;
 					})
 				}
 			</div>
