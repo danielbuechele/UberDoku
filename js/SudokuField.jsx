@@ -13,11 +13,6 @@ module.exports = React.createClass({
 		this.props.onClick();
 		this.setState({insertNumber: (!this.props.board[this.props.i].predefined && !this.state.insertNumber)});
 	},
-	
-	onKeyUp: function (e) {
-		this.setState({insertNumber: false});
-		console.log(e);
-	},
 
 	render: function () {
 		var cx = React.addons.classSet;

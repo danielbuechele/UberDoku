@@ -8,7 +8,6 @@ module.exports = React.createClass({
 	getInitialState: function () {
 		var puzzle = JSON.parse(localStorage.getItem("board"));
 		if (!puzzle) {
-			console.log('new puzzle');
 			puzzle = sudoku.makepuzzle().map(function (e) {
 				return {number: e==null? null : e, predefined: (e!=null)};
 			});
