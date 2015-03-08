@@ -12,7 +12,13 @@ webpack
 Then open `index.html` in your browser.
 
 ## Technologies used
-The interface is implemented using [react.js](http://facebook.github.io/react/). The game uses the [sudoku-generator](https://github.com/dachev/sudoku) by *dachev* to generate and solve the puzzles. The state of the game is saved in the browser's local storage, so it persists a reload.
+The game uses the [sudoku-generator](https://github.com/dachev/sudoku) by *dachev* to generate and solve the puzzles. The state of the game is saved in the browser's local storage, so it persists a reload. All JavaScript, templates and LESS-files are compiled using `webpack`.
+
+* `UberDoku` is the main game that saves the game state and creates the components of the game
+* `SudokuField` 82 instances of this class are created representing the fields of the puzzle
+* `Button` the buttons above the puzzle to create a new game, solve the game or reset it
+* `NumberPicker` is instantiated inside every SudokuField, this is the UI to select the number for the field
+* `Completed` is the counter of how many fields of the puzzle are filled out
 
 ## Improvements
 There are a couple of idea I have about improving this game:
