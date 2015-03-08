@@ -1,13 +1,13 @@
 module.exports = {
-	entry: './js/app.jsx',
+	entry: './js/app.js',
 	module: {
 		loaders: [
-			{ test: /\.jsx$/,    loader: 'jsx-loader'},
-			{ test: /\.less$/,   loader: "style-loader!css-loader!autoprefixer-loader!less-loader" },
-			{ test: /\.woff$/,   loader: "file-loader" },
-			{ test: /\.ttf$/,    loader: "file-loader" },
-			{ test: /\.eot$/,    loader: "file-loader" },
-			{ test: /\.svg$/,    loader: "file-loader" }
+			{ test: /\.hbs$/,  loader: "handlebars-loader" },
+			{ test: /\.less$/, loader: "style-loader!css-loader!autoprefixer-loader!less-loader" },
+			{ test: /\.woff$/, loader: "file-loader" },
+			{ test: /\.ttf$/,  loader: "file-loader" },
+			{ test: /\.eot$/,  loader: "file-loader" },
+			{ test: /\.svg$/,  loader: "file-loader" }
 		]
 	},
 	output: {
